@@ -1,0 +1,9 @@
+C:\Users\jamwalsh\Dropbox\Projects\GitHub\SVS_Toolkit\SVS_Toolkit\bin\Debug\SVS_Toolkit.exe.config
+C:\Users\jamwalsh\Dropbox\Projects\GitHub\SVS_Toolkit\SVS_Toolkit\bin\Debug\SVS_Toolkit.exe
+C:\Users\jamwalsh\Dropbox\Projects\GitHub\SVS_Toolkit\SVS_Toolkit\bin\Debug\SVS_Toolkit.pdb
+C:\Users\jamwalsh\Dropbox\Projects\GitHub\SVS_Toolkit\SVS_Toolkit\obj\Debug\SVS_Toolkit.csprojResolveAssemblyReference.cache
+C:\Users\jamwalsh\Dropbox\Projects\GitHub\SVS_Toolkit\SVS_Toolkit\obj\Debug\SVS_Toolkit.MainFrm.resources
+C:\Users\jamwalsh\Dropbox\Projects\GitHub\SVS_Toolkit\SVS_Toolkit\obj\Debug\SVS_Toolkit.Properties.Resources.resources
+C:\Users\jamwalsh\Dropbox\Projects\GitHub\SVS_Toolkit\SVS_Toolkit\obj\Debug\SVS_Toolkit.csproj.GenerateResource.Cache
+C:\Users\jamwalsh\Dropbox\Projects\GitHub\SVS_Toolkit\SVS_Toolkit\obj\Debug\SVS_Toolkit.exe
+C:\Users\jamwalsh\Dropbox\Projects\GitHub\SVS_Toolkit\SVS_Toolkit\obj\Debug\SVS_Toolkit.pdb
