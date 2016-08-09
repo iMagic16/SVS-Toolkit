@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.LstOutput = new System.Windows.Forms.ListBox();
             this.BtnBrowse = new System.Windows.Forms.Button();
             this.TxtFileLoc = new System.Windows.Forms.TextBox();
             this.BtnGo = new System.Windows.Forms.Button();
-            this.LstOutput = new System.Windows.Forms.ListBox();
             this.BrowseDialog = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -51,6 +51,14 @@
             this.groupBox1.Tag = "";
             this.groupBox1.Text = "Change Comparison - Deduplicator";
             // 
+            // LstOutput
+            // 
+            this.LstOutput.FormattingEnabled = true;
+            this.LstOutput.Location = new System.Drawing.Point(8, 20);
+            this.LstOutput.Name = "LstOutput";
+            this.LstOutput.Size = new System.Drawing.Size(320, 147);
+            this.LstOutput.TabIndex = 6;
+            // 
             // BtnBrowse
             // 
             this.BtnBrowse.Location = new System.Drawing.Point(8, 178);
@@ -59,6 +67,7 @@
             this.BtnBrowse.TabIndex = 5;
             this.BtnBrowse.Text = "Browse";
             this.BtnBrowse.UseVisualStyleBackColor = true;
+            this.BtnBrowse.Click += new System.EventHandler(this.BtnBrowse_Click);
             // 
             // TxtFileLoc
             // 
@@ -75,18 +84,11 @@
             this.BtnGo.TabIndex = 3;
             this.BtnGo.Text = "Go";
             this.BtnGo.UseVisualStyleBackColor = true;
-            // 
-            // LstOutput
-            // 
-            this.LstOutput.FormattingEnabled = true;
-            this.LstOutput.Location = new System.Drawing.Point(8, 20);
-            this.LstOutput.Name = "LstOutput";
-            this.LstOutput.Size = new System.Drawing.Size(320, 147);
-            this.LstOutput.TabIndex = 6;
+            this.BtnGo.Click += new System.EventHandler(this.BtnGo_Click);
             // 
             // BrowseDialog
             // 
-            this.BrowseDialog.Filter = "\"File to Compare|*.txt|All Files|*.*\"";
+            this.BrowseDialog.Filter = "File to Compare|*.txt|All Files|*.*";
             // 
             // MainFrm
             // 
@@ -96,7 +98,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "MainFrm";
             this.Text = "SVS Toolkit";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
