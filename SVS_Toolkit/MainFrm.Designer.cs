@@ -43,9 +43,10 @@
             this.groupBox1.Controls.Add(this.BtnBrowse);
             this.groupBox1.Controls.Add(this.TxtFileLoc);
             this.groupBox1.Controls.Add(this.BtnGo);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(334, 208);
+            this.groupBox1.Size = new System.Drawing.Size(554, 320);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Tag = "";
@@ -56,14 +57,14 @@
             this.LstOutput.FormattingEnabled = true;
             this.LstOutput.Location = new System.Drawing.Point(8, 20);
             this.LstOutput.Name = "LstOutput";
-            this.LstOutput.Size = new System.Drawing.Size(320, 147);
+            this.LstOutput.Size = new System.Drawing.Size(534, 264);
             this.LstOutput.TabIndex = 6;
             // 
             // BtnBrowse
             // 
-            this.BtnBrowse.Location = new System.Drawing.Point(8, 178);
+            this.BtnBrowse.Location = new System.Drawing.Point(12, 294);
             this.BtnBrowse.Name = "BtnBrowse";
-            this.BtnBrowse.Size = new System.Drawing.Size(52, 20);
+            this.BtnBrowse.Size = new System.Drawing.Size(61, 20);
             this.BtnBrowse.TabIndex = 5;
             this.BtnBrowse.Text = "Browse";
             this.BtnBrowse.UseVisualStyleBackColor = true;
@@ -71,14 +72,14 @@
             // 
             // TxtFileLoc
             // 
-            this.TxtFileLoc.Location = new System.Drawing.Point(66, 178);
+            this.TxtFileLoc.Location = new System.Drawing.Point(79, 294);
             this.TxtFileLoc.Name = "TxtFileLoc";
-            this.TxtFileLoc.Size = new System.Drawing.Size(227, 20);
+            this.TxtFileLoc.Size = new System.Drawing.Size(428, 20);
             this.TxtFileLoc.TabIndex = 4;
             // 
             // BtnGo
             // 
-            this.BtnGo.Location = new System.Drawing.Point(299, 178);
+            this.BtnGo.Location = new System.Drawing.Point(513, 294);
             this.BtnGo.Name = "BtnGo";
             this.BtnGo.Size = new System.Drawing.Size(29, 20);
             this.BtnGo.TabIndex = 3;
@@ -94,7 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(358, 232);
+            this.ClientSize = new System.Drawing.Size(554, 320);
             this.Controls.Add(this.groupBox1);
             this.Name = "MainFrm";
             this.Text = "SVS Toolkit";

@@ -18,14 +18,16 @@ namespace SVS_Toolkit
         }
 
         public string FileLoc = "";
-        public bool EnableDebug;
+        public bool EnableDebug = false;
 
         private void WriteOutput(string input, bool debug = false)
         {
-            debug = EnableDebug;
+            //     debug = EnableDebug;
+            EnableDebug = debug;
 
-            if (!debug)
+            if (!EnableDebug)
             {
+
                 string Message = DateTime.UtcNow + " :: " + input;
                 LstOutput.Items.Add(Message);
                 Console.WriteLine(Message);
@@ -33,7 +35,6 @@ namespace SVS_Toolkit
             else
             {
                 string Message = "DEBUG :: " + DateTime.UtcNow + " :: " + input;
-                LstOutput.Items.Add(Message);
                 Console.WriteLine(Message);
             }
 
@@ -41,41 +42,88 @@ namespace SVS_Toolkit
 
         private void WorkThroughTXT(string TXTLocation)
         {
-            WriteOutput("//////////////////////////////");
-            WriteOutput("New Subroutine: WorkThroughTXT");
-            WriteOutput("//////////////////////////////");
+            WriteOutput("//////////////////////////////", true);
+            WriteOutput("New Subroutine: WorkThroughTXT", true);
+            WriteOutput("//////////////////////////////", true);
 
             int count = 0;
-            string LINE, stringA, stringB;
+            string LINE;
+            string stringA = "";
+            string stringB = "";
 
             //read the file, display l-b-l
-            WriteOutput("Reading file from location -> [" + TXTLocation + "]");
+            WriteOutput("Reading file from location -> [" + TXTLocation + "]", true);
             System.IO.StreamReader file = new System.IO.StreamReader(TXTLocation);
+            WriteOutput("Begin file output");
+            WriteOutput("_______________________________");
 
             while ((LINE = file.ReadLine()) != null)
             {
-                WriteOutput("Iteration: " + count);
+                WriteOutput("Iteration: " + count, true);
                 WriteOutput(LINE);
+
+                if (!(count % 2 != 0))
+                {
+                    stringA = LINE;
+                    WriteOutput("ODD NUMBER, STRING A = " + stringA, true);
+
+                }
+                else
+                {
+                    stringB = LINE;
+                    WriteOutput("EVEN NUMBER, STRING B = " + stringB, true);
+
+                    WriteOutput("Comparing stringA to stringB, removing dupes");
+                    Compare(stringA, stringB);
+                }
+
+
+
+
                 count++;
             }
 
-            WriteOutput("//////////////////////////////");
-            WriteOutput("End Subroutine: WorkThroughTXT");
-            WriteOutput("//////////////////////////////");
+
+            WriteOutput("_______________________________");
+            WriteOutput("File output finished, " + count + " lines iterated");
+
+            WriteOutput("//////////////////////////////", true);
+            WriteOutput("End Subroutine: WorkThroughTXT", true);
+            WriteOutput("//////////////////////////////", true);
         }
 
-        private bool Compare(string string1, string string2)
+        private void Compare(string String1ToComp, string String2ToComp)
         {
+            if (String1ToComp.StartsWith("+"))
+            {
+                WriteOutput("+++++++ DETECTED +++++++ [String1]", true);
+                //add code to remove the + and compare here
+            }
+            else if (String1ToComp.StartsWith("-"))
+            {
+                WriteOutput("------- DETECTED ------- [String1]", true);
+                //add code to remove the - and compare here
 
+            }
 
+            if (String2ToComp.StartsWith("+"))
+            {
+                WriteOutput("+++++++ DETECTED +++++++ [String2]", true);
+                //add code to remove the + and compare here
 
-            return false;
+            }
+            else if (String2ToComp.StartsWith("-"))
+            {
+                WriteOutput("------- DETECTED ------- [String2]", true);
+                //add code to remove the - and compare here
+
+            }
 
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            WriteOutput("Form loaded successfully...");
+            WriteOutput("Program loaded successfully...");
         }
 
         private void BtnBrowse_Click(object sender, EventArgs e)
@@ -87,10 +135,11 @@ namespace SVS_Toolkit
                 try
                 {
                     //set file loc to selected file
-                    WriteOutput("Setting file location to -> [" + BrowseDialog.FileName + "]");
+                    WriteOutput("File Selected");
+                    WriteOutput("Setting file location to -> [" + BrowseDialog.FileName + "]", true);
                     FileLoc = BrowseDialog.FileName;
                     TxtFileLoc.Text = FileLoc;
-                    WriteOutput("FileLoc set to -> [" + FileLoc + "]");
+                    WriteOutput("FileLoc set to -> [" + FileLoc + "]", true);
                 }
                 catch (Exception err)
                 {
@@ -102,7 +151,7 @@ namespace SVS_Toolkit
 
         private void BtnGo_Click(object sender, EventArgs e)
         {
-            WriteOutput("Setting File Location to textbox location -> [" + TxtFileLoc.Text + "]");
+            WriteOutput("Setting File Location to textbox location -> [" + TxtFileLoc.Text + "]", true);
             FileLoc = TxtFileLoc.Text;
             WriteOutput("Attempting to work through the text file line by line...");
             WorkThroughTXT(TxtFileLoc.Text);
