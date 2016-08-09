@@ -21,5 +21,10 @@ namespace SVS_Toolkit
         {
 
         }
+
+        private void BtnBrowse_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

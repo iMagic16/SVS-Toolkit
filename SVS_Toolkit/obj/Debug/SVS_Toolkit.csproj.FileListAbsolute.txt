@@ -7,3 +7,6 @@ C:\Users\jamwalsh\Dropbox\Projects\GitHub\SVS_Toolkit\SVS_Toolkit\obj\Debug\SVS_
 C:\Users\jamwalsh\Dropbox\Projects\GitHub\SVS_Toolkit\SVS_Toolkit\obj\Debug\SVS_Toolkit.csproj.GenerateResource.Cache
 C:\Users\jamwalsh\Dropbox\Projects\GitHub\SVS_Toolkit\SVS_Toolkit\obj\Debug\SVS_Toolkit.exe
 C:\Users\jamwalsh\Dropbox\Projects\GitHub\SVS_Toolkit\SVS_Toolkit\obj\Debug\SVS_Toolkit.pdb
+C:\Users\jamwalsh\Dropbox\Cisco\Projects\SVS-Toolkit\SVS_Toolkit\bin\Debug\SVS_Toolkit.exe.config
+C:\Users\jamwalsh\Dropbox\Cisco\Projects\SVS-Toolkit\SVS_Toolkit\obj\Debug\SVS_Toolkit.exe
+C:\Users\jamwalsh\Dropbox\Cisco\Projects\SVS-Toolkit\SVS_Toolkit\obj\Debug\SVS_Toolkit.pdb
