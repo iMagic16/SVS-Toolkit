@@ -12,6 +12,8 @@ namespace SVS_Toolkit
 
         public string FileLoc = "";
         public bool EnableDebug = false;
+        public string FinalOutput = "";
+        public int PlusCount, MinusCount, LineCount;
 
         private void WriteOutput(string input, bool debug = false)
         {
@@ -54,7 +56,8 @@ namespace SVS_Toolkit
             {
                 WriteOutput("Iteration: " + count, true);
                 WriteOutput(LINE);
-
+                LineCount++;
+                //if count = odd
                 if (!(count % 2 != 0))
                 {
                     stringA = LINE;
@@ -66,7 +69,7 @@ namespace SVS_Toolkit
                     stringB = LINE;
                     WriteOutput("EVEN NUMBER, STRING B = " + stringB, true);
 
-                    WriteOutput("Comparing stringA to stringB, removing dupes");
+                    WriteOutput("Comparing stringA to stringB, removing dupes", true);
                     Compare(stringA, stringB);
                 }
 
@@ -87,30 +90,51 @@ namespace SVS_Toolkit
 
         private void Compare(string String1ToComp, string String2ToComp)
         {
+            string TruncatedA, TruncatedB;
+
             if (String1ToComp.StartsWith("+"))
             {
                 WriteOutput("+++++++ DETECTED +++++++ [String1]", true);
                 //add code to remove the + and compare here
+                TruncatedA = String1ToComp.TrimStart('+');
+                WriteOutput("Truncated output: " + TruncatedA, true);
+                FinalOutput += TruncatedA + Environment.NewLine;
+
+                PlusCount++;
             }
             else if (String1ToComp.StartsWith("-"))
             {
                 WriteOutput("------- DETECTED ------- [String1]", true);
                 //add code to remove the - and compare here
+                TruncatedA = String1ToComp.TrimStart('-');
+                WriteOutput("Truncated output: " + TruncatedA, true);
+                FinalOutput += TruncatedA + Environment.NewLine;
 
+                MinusCount++;
             }
 
             if (String2ToComp.StartsWith("+"))
             {
                 WriteOutput("+++++++ DETECTED +++++++ [String2]", true);
                 //add code to remove the + and compare here
+                TruncatedB = String2ToComp.TrimStart('-');
+                WriteOutput("Truncated output: " + TruncatedB, true);
+                FinalOutput += TruncatedB + Environment.NewLine;
 
+                PlusCount++;
             }
             else if (String2ToComp.StartsWith("-"))
             {
                 WriteOutput("------- DETECTED ------- [String2]", true);
                 //add code to remove the - and compare here
+                TruncatedB = String2ToComp.TrimStart('-');
+                WriteOutput("Truncated output: " + TruncatedB, true);
+                FinalOutput += TruncatedB + Environment.NewLine;
 
+                MinusCount++;
             }
+
+
 
         }
 
@@ -148,6 +172,23 @@ namespace SVS_Toolkit
             FileLoc = TxtFileLoc.Text;
             WriteOutput("Attempting to work through the text file line by line...");
             WorkThroughTXT(TxtFileLoc.Text);
+            WriteOutput("/////// FINAL OUTPUT ///////", true);
+            WriteOutput(FinalOutput, true);
+            WriteOutput("/////// FINAL OUTPUT ///////", true);
+
+            WriteStatistics();
+
+            WriteOutput("Done.");
+        }
+
+        private void WriteStatistics()
+        {
+            WriteOutput("Program Stastics: |           |");
+            WriteOutput("Count of Plus :   | " + PlusCount);
+            WriteOutput("Count of Minus:   | " + MinusCount);
+            WriteOutput("Lines Iterated:   | " + LineCount);
+
+
         }
     }
 }
