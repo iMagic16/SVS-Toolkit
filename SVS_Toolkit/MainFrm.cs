@@ -12,7 +12,7 @@ namespace SVS_Toolkit
 
         public string FileLoc = "";
         public bool EnableDebug = false;
-        public string FinalOutput = "";
+        public string FinalOutput = "", TrueFinalOutput = "";
         public int PlusCount, MinusCount, LineCount;
 
         private void WriteOutput(string input, bool debug = false)
@@ -90,7 +90,7 @@ namespace SVS_Toolkit
 
         private void Compare(string String1ToComp, string String2ToComp)
         {
-            string TruncatedA, TruncatedB;
+            string TruncatedA = "", TruncatedB = "";
 
             if (String1ToComp.StartsWith("+"))
             {
@@ -99,6 +99,9 @@ namespace SVS_Toolkit
                 TruncatedA = String1ToComp.TrimStart('+');
                 WriteOutput("Truncated output: " + TruncatedA, true);
                 FinalOutput += TruncatedA + Environment.NewLine;
+
+
+
 
                 PlusCount++;
             }
@@ -134,7 +137,22 @@ namespace SVS_Toolkit
                 MinusCount++;
             }
 
+            //Now we compare A + B, if they're the same we keep the removed +/-, else ignore it
 
+            if (TruncatedA == TruncatedB)
+            {
+                WriteOutput("Found a duplicated, removing...");
+
+                WriteOutput(TruncatedA + " & " + TruncatedB + " are the same, removing one of them...");
+
+                TrueFinalOutput += TruncatedA + Environment.NewLine;
+
+
+            }
+            else
+            {
+                TrueFinalOutput += TruncatedA + Environment.NewLine;
+            }
 
         }
 
@@ -175,6 +193,10 @@ namespace SVS_Toolkit
             WriteOutput("/////// FINAL OUTPUT ///////", true);
             WriteOutput(FinalOutput, true);
             WriteOutput("/////// FINAL OUTPUT ///////", true);
+
+            WriteOutput("/////// TFINAL OUTPUT ///////", true);
+            WriteOutput(TrueFinalOutput, true);
+            WriteOutput("/////// TFINAL OUTPUT ///////", true);
 
             WriteStatistics();
 
